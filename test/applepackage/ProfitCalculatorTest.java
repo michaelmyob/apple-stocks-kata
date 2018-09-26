@@ -2,6 +2,8 @@ package applepackage;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class ProfitCalculatorTest {
@@ -14,7 +16,7 @@ public class ProfitCalculatorTest {
 
 
     @Test
-    public void whenGivenSampleArray_ReturnLowestNumberFive(){
+    public void A_whenGivenSampleArray_ReturnLowestNumberFive(){
         int expected = 5;
         calculator = new ProfitCalculator(sampleArray);
         int actual = calculator.getLowest();
@@ -24,7 +26,7 @@ public class ProfitCalculatorTest {
     }
 
     @Test
-    public void whenGivenSampleArray_ReturnProfitOfSix() {
+    public void B_whenGivenSampleArray_ReturnProfitOfSix() {
         int expected = 6;
         calculator = new ProfitCalculator(sampleArray);
         int actual = calculator.getMaxProfit();
@@ -33,7 +35,7 @@ public class ProfitCalculatorTest {
     }
 
     @Test
-    public void whenGivenSampleArray2_ReturnProfitOfEight() {
+    public void C_whenGivenSampleArray2_ReturnProfitOfEight() {
         int expected = 8;
         calculator = new ProfitCalculator(sampleArray2);
         int actual = calculator.getMaxProfit();
@@ -42,21 +44,24 @@ public class ProfitCalculatorTest {
     }
 
     @Test
-    public void whenGivenSampleArray3_ReturnProfitOf3withCorrectPair() {
+    public void D_whenGivenSampleArray3_ReturnProfitOf3withCorrectPair() {
         int expected = 3;
+        int[] expectedPair = new int[]{7,10};
         calculator = new ProfitCalculator(sampleArray3);
+
         int actual = calculator.getMaxProfit();
+        String actualPair = calculator.getProfitPair();
 
         assertEquals(expected, actual);
+        assertEquals(Arrays.toString(expectedPair), actualPair);
     }
 
     @Test
-    public void whenGivenSampleArray4_ReturnNoProfit() {
-        int expected = 0;
+    public void E_whenGivenSampleArray4_ReturnNoProfit() {
+        int expected = -1;
         calculator = new ProfitCalculator(sampleArray4);
         int actual = calculator.getMaxProfit();
 
         assertEquals(expected, actual);
     }
-
 }
